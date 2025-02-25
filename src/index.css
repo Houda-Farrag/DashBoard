@@ -3,6 +3,8 @@
 :root {
   --background-dark: #1f1f1f;
   --background-light: #f1f1f1;
+  --text-dark: #1f1f1f;
+  --text-light: #f1f1f1;
 }
 * {
   margin: 0;

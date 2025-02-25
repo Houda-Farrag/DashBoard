@@ -73,8 +73,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-export default function TopBarDashboard({ open, handleDrawerOpen }) {
+export default function TopBarDashboard({ open, handleDrawerOpen, toggleTheme }) {
   const theme = useTheme();
+
   return (
     <AppBar position="fixed" open={open}>
       <Toolbar>
@@ -117,6 +118,7 @@ export default function TopBarDashboard({ open, handleDrawerOpen }) {
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
+              onClick={toggleTheme}
             >
               <Badge>
                 
