@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { styled, ThemeProvider, CssBaseline, Box } from '@mui/material';
-import RouterWebsite from '../router';
 import SideBar from '../components/SideBar';
 import TopBarDashboard from '../components/TopBarDashboard';
 import { useCustomTheme } from '../utils/themes';
 import { Outlet } from 'react-router-dom';
+import ScrollbarStyles from './ScrollBar';
 export const drawerWidth = 240;
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -28,7 +28,8 @@ export default function MiniDrawer() {
         <CssBaseline />
         <TopBarDashboard open={open} handleDrawerOpen={handleDrawerOpen} toggleTheme={toggleTheme} />
         <SideBar open={open} handleDrawerClose={handleDrawerClose} theme={theme} />
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Box component="main" sx={{ display: 'flex', width: '100%', flexDirection: 'column', flexGrow: 1, p: 3, height: '100vh', overflowY: 'auto' }}>
+          <ScrollbarStyles/>
           <DrawerHeader />
           <Outlet />
         </Box>
