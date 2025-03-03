@@ -9,7 +9,7 @@ export default function Recipt() {
     <MainBoxLayout>
       <Header title="Invoice" subtitle="List of Invoice Balance"></Header>
       <DataGrid
-        rows={[...rows, ...rows]}
+        rows={rows}
         columns={columns}
         components={{ Toolbar: GridToolbar }}
         slots={{ toolbar: GridToolbar }}

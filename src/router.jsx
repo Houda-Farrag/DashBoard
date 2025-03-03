@@ -9,6 +9,7 @@ import Info from "./pages/info/Info";
 import Recipt from "./pages/recipt/Recipt";
 import AddUser from "./pages/AddUser/AddUser";
 import Calender from "./pages/Calender/Calender";
+import Faq from "./pages/Faq/Faq";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ export const router = createBrowserRouter([
       {
         path: "calender",
         element: <Calender/>,
+      },
+      {
+        path: "faq",
+        element: <Faq />, 
       },
       {
         path: "subscripe",

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import MainBoxLayout from "../../layout/mainBoxLayout";
 import Header from "../../components/Header";
 import { Box, Button, MenuItem, Stack, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
+import Snackbar from '@mui/material/Snackbar';
+import Alert from '@mui/material/Alert';
 export default function AddUser() {
+  const [open, setOpen] = React.useState(false);
+  const [loader, setLoader] = useState(false)
   const roles = [
     {
       value: "admin",
@@ -22,15 +26,50 @@ export default function AddUser() {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-  
-  
+  } = useForm({
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      role: "admin",
+    },
+  });
+  const onSubmit = (data) => {
+    // handleClick();
+    setLoader(true);
+    setTimeout(() => {
+      setLoader(false);
+      setOpen(true);
+      reset(); // Reset the form fields after successful submission
+    }, 1000);
+  };
+  const handleClick = () => {
+    setOpen(true);
+  };
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
   return (
     <MainBoxLayout>
       <Header title="Create User" subtitle="Create new User profile"></Header>
+      <Snackbar anchorOrigin={{ vertical: 'top', horizontal: 'right' }} open={open} autoHideDuration={1500} onClose={handleClose}>
+        <Alert
+          onClose={handleClose}
+          severity="success"
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          User created successfully
+        </Alert>
+      </Snackbar>
+
       <Box
         component="form"
         sx={{
@@ -49,7 +88,7 @@ export default function AddUser() {
             sx={{ flexGrow: 1 }}
             label="First Name"
             variant="filled"
-            value={watch("firstName")}
+            value={watch("firstName") || ""}
             error={errors.firstName ? true : false}
             helperText={errors.firstName && "First Name is required"}
             {...register("firstName", { required: true, maxLength: 20 })}
@@ -58,7 +97,7 @@ export default function AddUser() {
             sx={{ flexGrow: 1 }}
             label="Second Name"
             variant="filled"
-            value={watch("lastName")}
+            value={watch("lastName") || ""}
             error={errors.lastName ? true : false}
             helperText={errors.lastName && "Last Name is required"}
             {...register("lastName", { required: true, maxLength: 20 })}
@@ -68,7 +107,7 @@ export default function AddUser() {
           sx={{ flexGrow: 1 }}
           label="Email"
           variant="filled"
-          value={watch("email")}
+          value={watch("email") || ""}
           error={errors.email ? true : false}
           helperText={
             errors.email && errors.email?.type === "required"
@@ -87,7 +126,7 @@ export default function AddUser() {
           sx={{ flexGrow: 1 }}
           label="Contact Number"
           variant="filled"
-          value={watch("phone")}
+          value={watch("phone") || ""}
           error={errors.phone ? true : false}
           helperText={errors.phone && errors.phone?.type === "required" ? "Phone Number is required" : errors.phone?.type === "pattern" ? "Phone Number is not valid" : ""}
           {...register("phone", { required: true, pattern: /^[0-9]{10}$/ })}
@@ -96,7 +135,7 @@ export default function AddUser() {
           sx={{ flexGrow: 1 }}
           label="Address 1"
           variant="filled"
-          value={watch("address1")}
+          value={watch("address1") || ""}
           error={errors.address1 ? true : false}
           helperText={errors.address1 && "Address 1 is required"}
           {...register("address1", { required: false })}
@@ -105,7 +144,7 @@ export default function AddUser() {
           sx={{ flexGrow: 1 }}
           label="Address 2"
           variant="filled"
-          value={watch("address2")}
+          value={watch("address2") || ""}
           error={errors.address2 ? true : false}
           helperText={errors.address2 && "Address 2 is required"}
           {...register("address2", { required: false })}
@@ -115,7 +154,7 @@ export default function AddUser() {
           select
           label="Role"
           defaultValue="admin"
-          value={watch("role")}
+          value={watch("role") || "admin"}
           error={errors.role ? true : false}
           helperText={errors.role && "Role is required"}
           variant="filled"
@@ -127,13 +166,16 @@ export default function AddUser() {
             </MenuItem>
           ))}
         </TextField>
+
         <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
           <Button
             type="submit"
             variant="contained"
             sx={{ p: 2, mt: 2, minWidth: "15%", textTransform: "UPPERCASE" }}
+            disabled={loader}
+          
           >
-            Create new user
+            {loader ? "Creating..." : "Create new user"}
           </Button>
         </Box>
       </Box>
