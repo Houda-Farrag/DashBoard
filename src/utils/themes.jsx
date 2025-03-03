@@ -13,10 +13,10 @@ export const useCustomTheme = () => {
   const palletColor = {
     mode: darkMode ? "dark" : "light",
     primary: {
-      main: darkMode ? "#ba000d" : "#9c27b0",
+      main: darkMode ? "#2196f3" : "#9c27b0",
       light: darkMode ? "#ff7961" : "#d05ce3",
-      dark: darkMode ? "#8e0000" : "#6a1b9a",
-      hover: darkMode ? "#ff5252" : "#ab47bc",
+      dark: darkMode ? "#01579b" : "#6a1b9a",
+      hover: darkMode ? "#01579b" : "#ab47bc",
       contrastText: darkMode ? "#ffffff" : "#ffffff",
     },
     secondary: {

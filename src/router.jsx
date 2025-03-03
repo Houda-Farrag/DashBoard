@@ -7,6 +7,8 @@ import SubscripePage from "./pages/subscripePage/SubscripePage";
 import Team from "./pages/team/Team";
 import Info from "./pages/info/Info";
 import Recipt from "./pages/recipt/Recipt";
+import AddUser from "./pages/AddUser/AddUser";
+import Calender from "./pages/Calender/Calender";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ export const router = createBrowserRouter([
       {
         path: "recipt",
         element: <Recipt />, 
+      },
+      {
+        path: "add-user",
+        element: <AddUser />,
+      },
+      {
+        path: "calender",
+        element: <Calender/>,
       },
       {
         path: "subscripe",

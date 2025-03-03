@@ -87,7 +87,7 @@ export default function SideBar({
     { text: "Invoices Balance", icon: <ReceiptIcon />, path: "/recipt" },
   ];
   const arraySec2 = [
-    { text: "profile", icon: <PermIdentityIcon />, path: "/profile" },
+    { text: "add User", icon: <PermIdentityIcon />, path: "/add-user" },
     { text: "calender", icon: <CalendarTodayIcon />, path: "/calender" },
     { text: "FAQ Page", icon: <HelpOutlineOutlinedIcon />, path: "/faq" },
   ];

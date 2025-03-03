@@ -3,17 +3,17 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { alpha, Badge, Box, styled, useTheme } from "@mui/material";
+import { alpha, Badge, Box, Divider, styled, useTheme } from "@mui/material";
 import MuiAppBar from "@mui/material/AppBar";
 import { drawerWidth } from "../layout/Layout";
 import SearchIcon from "@mui/icons-material/Search";
 import InputBase from "@mui/material/InputBase";
 import MailIcon from "@mui/icons-material/Mail";
-import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
-import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
-import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
-import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
+import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import WbSunnyOutlinedIcon from "@mui/icons-material/WbSunnyOutlined";
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme }) => ({
@@ -73,7 +73,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-export default function TopBarDashboard({ open, handleDrawerOpen, toggleTheme }) {
+export default function TopBarDashboard({
+  open,
+  handleDrawerOpen,
+  toggleTheme,
+}) {
   const theme = useTheme();
 
   return (
@@ -113,17 +117,20 @@ export default function TopBarDashboard({ open, handleDrawerOpen, toggleTheme })
           }}
           flexGrow={1}
         >
+  
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-          <IconButton
+            <IconButton
               size="large"
               aria-label="show 4 new mails"
               color="inherit"
               onClick={toggleTheme}
             >
               <Badge>
-                
-                {theme.palette.mode === "light" ?  <WbSunnyOutlinedIcon />: <DarkModeOutlinedIcon />} 
-                
+                {theme.palette.mode === "light" ? (
+                  <WbSunnyOutlinedIcon />
+                ) : (
+                  <DarkModeOutlinedIcon />
+                )}
               </Badge>
             </IconButton>
             <IconButton
