@@ -10,6 +10,9 @@ import Recipt from "./pages/recipt/Recipt";
 import AddUser from "./pages/AddUser/AddUser";
 import Calender from "./pages/Calender/Calender";
 import Faq from "./pages/Faq/Faq";
+import BarChar from "./pages/BarChar/BarChar";
+import PieChar from "./pages/PieChar/PieChar";
+import LineChartPage from "./pages/LineChart/LineChart";
 
 export const router = createBrowserRouter([
   {
@@ -43,6 +46,18 @@ export const router = createBrowserRouter([
       {
         path: "faq",
         element: <Faq />, 
+      },
+      {
+        path: "barchart",
+        element: <BarChar />, 
+      },
+      {
+        path: "piechart",
+        element: <PieChar />,
+      },
+      {
+        path: "linechart",
+        element: <LineChartPage />, 
       },
       {
         path: "subscripe",
