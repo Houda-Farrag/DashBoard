@@ -11,7 +11,7 @@ export default function LineChartPage() {
         title="Line Char"
         subtitle="The minimum wage in Germany, France and Spain (EUR/month)"
       ></Header>
-      <Box sx={{ height: "100vh", p: 5, display: "flex" }}>
+      <Box sx={{ height: "100vh", p: 5, display: "flex",overflow:"scroll"  }}>
         <LineChartData />
       </Box>
     </MainBoxLayout>

@@ -18,6 +18,7 @@ export default function BarChar() {
           pl: 5,
           pt: 5,
           display: "flex",
+           overflow:"scroll"
         }}
       >
         <BarData />

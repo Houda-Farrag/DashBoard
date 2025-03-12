@@ -17,6 +17,7 @@ export default function PieChar() {
           height: "100vh",
           p: 5,
           display: "flex",
+          overflow:"scroll"
         }}
       >
         <PieData />

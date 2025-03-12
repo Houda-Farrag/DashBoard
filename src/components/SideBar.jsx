@@ -23,6 +23,7 @@ import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
+import MapIcon from '@mui/icons-material/Map';
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -95,6 +96,7 @@ export default function SideBar({
     { text: "Bar chart", icon: <BarChartOutlinedIcon />, path: "/barchart" },
     { text: "Pie Chart", icon: <PieChartOutlineOutlinedIcon />, path: "/piechart", },
     { text: "Line Chart", icon: <TimelineOutlinedIcon />, path: "/linechart" },
+    {text:"Geo Graphy", icon: <MapIcon />, path:"/geograph"}
   ];
   const { pathname } = useLocation();
   const themeL = useTheme();

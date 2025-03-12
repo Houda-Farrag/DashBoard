@@ -76,7 +76,7 @@ export default function Faq() {
     <>
       <MainBoxLayout>
         <Header title="FAQ" subtitle="Frequently Asked Questions"></Header>
-        <Box sx={{ m: 3, display: "flex", flexDirection: "column", gap: 2 }}>
+        <Box sx={{ m: 3, display: "flex", flexDirection: "column", gap: 2, overflowY:"scroll" }}>
           {faq.map((item) => (
             <Accordion key={item.id} defaultExpanded={item.id === 1} >
               <AccordionSummary

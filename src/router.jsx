@@ -13,7 +13,7 @@ import Faq from "./pages/Faq/Faq";
 import BarChar from "./pages/BarChar/BarChar";
 import PieChar from "./pages/PieChar/PieChar";
 import LineChartPage from "./pages/LineChart/LineChart";
-
+import GeiGraphy from "./pages/GeoGraphy/GeiGraphy";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -58,6 +58,10 @@ export const router = createBrowserRouter([
       {
         path: "linechart",
         element: <LineChartPage />, 
+      },
+      {
+        path: "geograph",
+        element: <GeiGraphy />, 
       },
       {
         path: "subscripe",

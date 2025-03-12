@@ -78,6 +78,7 @@ export default function AddUser() {
           gap: 2,
           flexWrap: "wrap",
           p: 3,
+          overflow:'scroll'
         }}
         noValidate
         autoComplete="off"

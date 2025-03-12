@@ -1,6 +1,6 @@
 import React from "react";
 import { PieChart } from "@mui/x-charts/PieChart";
-
+import { Box } from "@mui/material";
 export default function PieData() {
   const data = [
     {
@@ -44,18 +44,20 @@ export default function PieData() {
   const valueFormatter = (item) => `${item.value}%`;
 
   return (
+
+
     <PieChart
-    //   width={700}
-      height={700}
-      series={[
-        {
-          data: normalizedData,
-          innerRadius: 170,
-          arcLabel: (params) => params.label ?? "",
-          arcLabelMinAngle: 20,
-          valueFormatter,
-        },
-      ]}
+    height={700}
+    series={[
+      {
+        data: normalizedData,
+        innerRadius: 170,
+        arcLabel: (params) => params.label ?? "",
+        arcLabelMinAngle: 20,
+        valueFormatter,
+      },
+    ]}
     />
+
   );
 }
